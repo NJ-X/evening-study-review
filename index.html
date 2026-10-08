@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d171d">
+  <meta name="description" content="每天晚上用一分钟完成大学学习复盘，轻量规划明天最重要的三件事。">
+  <title>晚间学习复盘</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar"><span class="brand-mark" aria-hidden="true">✦</span><span class="brand">大学学习 · 每日记录</span><span class="time-pill">约 1 分钟</span></header>
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">今晚，给今天一个句号</p>
+      <h1 id="page-title">晚间学习复盘<span class="title-dot">.</span></h1>
+      <p class="hero-copy">五次选择，明天更清楚。不补旧账，只留下真正重要的事。</p>
+      <div class="date-line"><span class="date-icon" aria-hidden="true">◷</span><span id="date-label"></span><span class="date-note">日期自动记录</span></div>
+    </section>
+
+    <form id="review-form" novalidate>
+      <div class="section-heading"><div><span class="section-kicker">01 / TODAY</span><h2>今天进行得怎样？</h2></div><span class="section-hint">每项点一下就好</span></div>
+      <div class="review-list">
+        <section class="review-card" data-area="school"><div class="card-head"><span class="area-icon school-icon" aria-hidden="true">校</span><div><h3>学校课程 <span>/ GPA</span></h3><p>课程、作业与近期成绩</p></div><span class="priority">最优先</span></div><div class="status-row" role="group" aria-label="学校课程完成情况"><button type="button" class="status-button" data-status="done" aria-pressed="false">✓ 完成</button><button type="button" class="status-button" data-status="partial" aria-pressed="false">◐ 部分</button><button type="button" class="status-button" data-status="missed" aria-pressed="false">○ 未完成</button></div><div class="note-wrap" hidden><label for="school-note">最影响成绩的一项 <span>选填</span></label><input id="school-note" name="school-note" maxlength="80" placeholder="例如：明天截止的统计学作业" autocomplete="off"></div></section>
+        <section class="review-card" data-area="math"><div class="card-head"><span class="area-icon math-icon" aria-hidden="true">∑</span><div><h3>数学</h3><p>跟进课堂，抓住一个弱点</p></div></div><div class="status-row" role="group" aria-label="数学完成情况"><button type="button" class="status-button" data-status="done" aria-pressed="false">✓ 完成</button><button type="button" class="status-button" data-status="partial" aria-pressed="false">◐ 部分</button><button type="button" class="status-button" data-status="missed" aria-pressed="false">○ 未完成</button></div><div class="note-wrap" hidden><label for="math-note">最弱知识点 <span>选填</span></label><input id="math-note" name="math-note" maxlength="80" placeholder="例如：导数的链式法则" autocomplete="off"></div></section>
+        <section class="review-card" data-area="english"><div class="card-head"><span class="area-icon english-icon" aria-hidden="true">En</span><div><h3>英语</h3><p>输入与复述，不累积欠账</p></div></div><div class="status-row" role="group" aria-label="英语完成情况"><button type="button" class="status-button" data-status="done" aria-pressed="false">✓ 完成</button><button type="button" class="status-button" data-status="partial" aria-pressed="false">◐ 部分</button><button type="button" class="status-button" data-status="missed" aria-pressed="false">○ 未完成</button></div><div class="note-wrap" hidden><label for="english-note">一句备注 <span>选填</span></label><input id="english-note" name="english-note" maxlength="80" placeholder="例如：今天口语只练了 3 分钟" autocomplete="off"></div></section>
+        <section class="review-card" data-area="python"><div class="card-head"><span class="area-icon python-icon" aria-hidden="true">{ }</span><div><h3>Python</h3><p>只处理真实的编程卡点</p></div></div><div class="status-row" role="group" aria-label="Python完成情况"><button type="button" class="status-button" data-status="done" aria-pressed="false">✓ 完成</button><button type="button" class="status-button" data-status="partial" aria-pressed="false">◐ 部分</button><button type="button" class="status-button" data-status="missed" aria-pressed="false">○ 未完成</button></div><div class="note-wrap" hidden><label for="python-note">具体卡点 <span>选填</span></label><input id="python-note" name="python-note" maxlength="80" placeholder="例如：全为负数时找最大值" autocomplete="off"></div></section>
+        <section class="review-card" data-area="economics"><div class="card-head"><span class="area-icon economics-icon" aria-hidden="true">↗</span><div><h3>经济学 / AI</h3><p>有明确截止才顺延</p></div></div><div class="status-row" role="group" aria-label="经济学或AI完成情况"><button type="button" class="status-button" data-status="done" aria-pressed="false">✓ 完成</button><button type="button" class="status-button" data-status="partial" aria-pressed="false">◐ 部分</button><button type="button" class="status-button" data-status="missed" aria-pressed="false">○ 未完成</button></div><div class="note-wrap" hidden><label for="economics-note">下一小步 <span>选填</span></label><input id="economics-note" name="economics-note" maxlength="80" placeholder="例如：确认竞赛接口输入输出" autocomplete="off"><label class="deadline-check"><input id="has-deadline" type="checkbox"><span>有明确的课程或竞赛截止</span></label></div></section>
+      </div>
+      <div class="submit-area"><button type="submit" class="submit-button">生成明天的 3 件事 <span aria-hidden="true">↗</span></button><p id="form-message" class="form-message" role="status" aria-live="polite"></p></div>
+    </form>
+
+    <section id="result" class="result" hidden aria-labelledby="tomorrow-heading"><div class="section-heading"><div><span class="section-kicker">02 / TOMORROW</span><h2 id="tomorrow-heading">明天最重要的 3 件事</h2></div></div><ol id="tomorrow-list" class="tomorrow-list"></ol><details class="decisions"><summary>看看五项如何处理 <span aria-hidden="true">⌄</span></summary><ul id="decision-list"></ul></details><p class="result-footnote">前三项按学校、数学、英语优先。Python 只接真实卡点；经济学 / AI 无截止就取消。</p></section>
+    <section class="history" aria-labelledby="history-heading"><div class="section-heading"><div><span class="section-kicker">03 / HISTORY</span><h2 id="history-heading">最近 7 天</h2></div></div><ul id="history-list" class="history-list"></ul><p id="history-caption" class="history-caption"></p></section>
+    <footer><p>记录只保存在这台设备的当前浏览器。换设备、清除浏览器数据或使用无痕模式时，历史可能无法保留。</p></footer>
+  </main>
+</body>
+</html>
